@@ -894,7 +894,7 @@ SELECT DISTINCT post_author, COUNT(ID) AS count, MAX(post_modified) AS modified
 			return true;
 
 		$sql = $wpdb->prepare(
-			"select count(*) from {$this->url_table} where `url` = %s limit 1",
+			"select count(*) from {$this->url_table} where `url` = %s limit 1 COLLATE utf8mb4_unicode_ci",
 			$link
 			);
 		$count = intval($wpdb->get_var($sql));
