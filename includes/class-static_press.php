@@ -546,7 +546,7 @@ CREATE TABLE `{$this->url_table}` (
 			if (!isset($url['url']) || !$url['url'])
 				continue;
 			$sql = $wpdb->prepare(
-				"select ID from {$this->url_table} where url=%s limit 1",
+				"select ID from {$this->url_table} where url=%s COLLATE utf8mb4_unicode_ci limit 1",
 				$url['url']);
 
 			$url['enable'] = 1;
